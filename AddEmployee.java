@@ -30,7 +30,7 @@ public class AddEmployee {
         try(ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("arxiuObjectes.txt"))){
             
             //Escriure l'objecte
-            for (Employee i : personal) {
+            for (Employee i : personal) {    //Utilitxem un bucle (foreach) per llegir l'array personal_recuperat ja que és un array
                 os.writeObject(i);
             }
             
@@ -40,27 +40,25 @@ public class AddEmployee {
         }catch(Exception ex){
             
         }
-            
-            
-            //Recuperar l'objecte creat amb ObjectOutputStream
-            
-            
-  //Creem un array per emmagatzemar l'objecte. Hem de fer casting ja que el readOPbject no es    //d'objecte Employye i la info que llegim la volem d'Employee
+           
+        //Recuperar l'objecte creat amb ObjectOutputStream   
+        //Creem un array per emmagatzemar l'objecte. Hem de fer casting ja que el readOPbject no es
+        //d'objecte Employye i la info que llegim la volem d'Employee
         
         ArrayList<Employee> treballadorsRecuperats = new ArrayList<Employee>();
-           
+        
+        try{ObjectInputStream ois = new ObjectInputStream(new FileInputStream("arxiuObjectes.txt"));
+            Object aux = ois.readObject();
             
+            while (aux!=null){
+                if (aux instanceof Employee)
+                    System.out.println(aux);  // Se escribe en pantalla el objeto
+                aux = ois.readObject();
+            }
             //Tancar el fluxe
-           
-
-            //Utilitxem un bucle (foreach) per llegir l'array personal_recuperat ja que és un array
-            
-                     
-       
-
-
-    }
-        
-        
+            ois.close(); 
+        }catch(Exception ex){
+            System.out.println("Error de lectura. :S ");
+        }
+    } 
 }
-
