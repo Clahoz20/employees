@@ -16,10 +16,11 @@ public class AddEmployee {
         Employee[] personal = new Employee[3]; //Creem una array de 3 posicions de personal
       
         //Afegim els 3 elements a l'array personal
-        personal[0] = new Employee ( "Ana", "Rebollo", 34, 178, "Ingenyiera Tècnica", 1700, "no");
-//Cmpletar els altres 2 empleats amb la info que vulgueu com fet amb l’anterior        
-    
+        personal[0] = new Employee ( "Ana", "Rebollo", 34, 178, "Enginyera Tècnica", 1700, false);
         
+        //Completar els altres 2 empleats amb la info que vulgueu com fet amb l’anterior        
+        personal[1] = new Employee ("Claudi", "Lahoz", 28, 176, "Actor", 700, false);
+        personal[2] = new Employee ("Gerard", "Marimon", 21, 183, "Broker", 20000, false);
         //Construim fluse de dades d'ObjectOutputStream dintre de try-catch
                    
             //Creem fluxe de dades de l'objecte pel que viatjarà la info
