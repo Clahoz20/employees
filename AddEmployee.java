@@ -1,9 +1,11 @@
 package jaumebalmes.employeestofile;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 /**
  * main per gestionar les creacions d'Employee i guardar/llegir info a fitxer
@@ -21,23 +23,31 @@ public class AddEmployee {
         //Completar els altres 2 empleats amb la info que vulgueu com fet amb l’anterior        
         personal[1] = new Employee ("Claudi", "Lahoz", 28, 176, "Actor", 700, false);
         personal[2] = new Employee ("Gerard", "Marimon", 21, 183, "Broker", 20000, false);
+        
         //Construim fluse de dades d'ObjectOutputStream dintre de try-catch
-                   
-            //Creem fluxe de dades de l'objecte pel que viatjarà la info
-            
+        
+        //Creem fluxe de dades de l'objecte pel que viatjarà la info
+        try(ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("arxiuObjectes.txt"))){
             
             //Escriure l'objecte
-           
-                        
+            for (Employee i : personal) {
+                os.writeObject(i);
+            }
+            
             //Tancar el fluxe
-           
+            os.close();
+            
+        }catch(Exception ex){
+            
+        }
             
             
             //Recuperar l'objecte creat amb ObjectOutputStream
             
             
   //Creem un array per emmagatzemar l'objecte. Hem de fer casting ja que el readOPbject no es    //d'objecte Employye i la info que llegim la volem d'Employee
-
+        
+        ArrayList<Employee> treballadorsRecuperats = new ArrayList<Employee>();
            
             
             //Tancar el fluxe
@@ -53,3 +63,4 @@ public class AddEmployee {
         
         
 }
+
