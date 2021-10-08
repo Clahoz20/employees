@@ -14,6 +14,7 @@ import java.util.Iterator;
  * main per gestionar les creacions d'Employee i guardar/llegir info a fitxer
  * @author Roger
  */
+
 public class AddEmployee {
     
     public static void main (String[] args) throws Exception{
@@ -36,14 +37,14 @@ public class AddEmployee {
             for (Employee i : personal) {    //Utilitxem un bucle (foreach) per llegir l'array personal_recuperat ja que és un array
                 os.writeObject(i);
             }
-            
-            //Tancar el fluxe
-            os.close();
-            
+           
         }catch(Exception ex){
             System.out.println("Error de escriptura. :( ");
+        }finally{
+            //Tancar el fluxe
+            os.close();
         }
-           
+     
         //Recuperar l'objecte creat amb ObjectOutputStream   
         //Creem un array per emmagatzemar l'objecte. Hem de fer casting ja que el readOPbject no es
         //d'objecte Employye i la info que llegim la volem d'Employee
@@ -57,10 +58,12 @@ public class AddEmployee {
                 System.out.println(ois.readObject());
                 System.out.println("*****************");
             }
-            //Tancar el fluxe
-            ois.close();
+            
         }catch(IOException | ClassNotFoundException ex){
             System.out.println("Error de lectura. :S " + ex);
+        }finally{
+            //Tancar el fluxe
+            ois.close();
         }
     } 
 }
