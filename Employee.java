@@ -2,13 +2,13 @@
  Objecte Empleat
  */
 package jaumebalmes.employeestofile;
-
+import java.io.Serializable;
 /**
  *
  * @author Claudi && Gerard
  */
 
-public class Employee {
+public class Employee implements Serializable{
     
     //<editor-fold defaultstate="collapsed" desc="ARTIBUTS">
     String name;
