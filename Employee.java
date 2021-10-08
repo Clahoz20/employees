@@ -5,11 +5,12 @@ package jaumebalmes.employeestofile;
 
 /**
  *
- * @author Roger
+ * @author Claudi && Gerard
  */
+
 public class Employee {
     
-    //Atributs
+    //<editor-fold defaultstate="collapsed" desc="ARTIBUTS">
     String name;
     String surname;
     int age;
@@ -17,9 +18,9 @@ public class Employee {
     String job;
     double salary;
     boolean married;
+    //</editor-fold>
     
-    
-    //Constructor
+    //<editor-fold defaultstate="collapsed" desc="CONSTRUCTOR">
     public Employee(){
         
     }
@@ -35,11 +36,9 @@ public class Employee {
         this.height = height;
         this.job = job;
     }
+    //</editor-fold>
     
-    
-     
-
-    //getters y setters
+    //<editor-fold defaultstate="collapsed" desc="GETTERS && SETTERS">
     public String getName(){
         return name;
     }
@@ -47,53 +46,59 @@ public class Employee {
     public void setName(String newName){
         name = newName;
     }
-  
+    
     public String getSurname(){
         return surname;
     }
-  
+    
     public void setSurname(String newSurname){
         surname = newSurname;
     }
-
+    
     public int getAge() {
         return age;
     }
-
+    
     public void setAge(int age) {
         this.age = age;
     }
-
+    
     public float getHeight() {
         return height;
     }
-
+    
     public void setHeight(float height) {
         this.height = height;
     }
-
+    
     public String getJob() {
         return job;
     }
-
+    
     public void setJob(String job) {
         this.job = job;
     }
-
+    
     public double getSalary() {
         return salary;
     }
-
+    
     public void setSalary(double salary) {
         this.salary = salary;
     }
-
+    
     public boolean isMarried() {
         return married;
     }
-
+    
     public void setMarried(boolean married) {
         this.married = married;
+    }
+//</editor-fold>
+
+    @Override
+    public String toString() {
+        return "Employee{" + "name=" + name + ", surname=" + surname + ", age=" + age + ", height=" + height + ", job=" + job + ", salary=" + salary + ", married=" + married + '}';
     }
       
 }
