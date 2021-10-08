@@ -36,6 +36,16 @@ public class Employee {
         this.height = height;
         this.job = job;
     }
+ 
+    public Employee (String name, String surname, int age, int height, String job, double salary, boolean married){
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.height = height;
+        this.job = job;
+        this.salary = salary;
+        this.married = married;
+    }
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="GETTERS && SETTERS">
