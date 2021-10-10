@@ -37,12 +37,10 @@ public class AddEmployee {
             for (Employee i : personal) {    //Utilitxem un bucle (foreach) per llegir l'array personal_recuperat ja que és un array
                 os.writeObject(i);
             }
-           
-        }catch(Exception ex){
-            System.out.println("Error de escriptura. :( ");
-        }finally{
             //Tancar el fluxe
             os.close();
+        }catch(Exception ex){
+            System.out.println("Error de escriptura. :( ");
         }
      
         //Recuperar l'objecte creat amb ObjectOutputStream   
@@ -58,12 +56,10 @@ public class AddEmployee {
                 System.out.println(ois.readObject());
                 System.out.println("*****************");
             }
-            
-        }catch(IOException | ClassNotFoundException ex){
-            System.out.println("Error de lectura. :S " + ex);
-        }finally{
             //Tancar el fluxe
             ois.close();
+        }catch(IOException | ClassNotFoundException ex){
+            System.out.println("Error de lectura. :S " + ex);
         }
     } 
 }
