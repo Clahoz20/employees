@@ -1,14 +1,11 @@
 package jaumebalmes.employeestofile;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 
 /**
  * main per gestionar les creacions d'Employee i guardar/llegir info a fitxer
@@ -48,18 +45,20 @@ public class AddEmployee {
         //d'objecte Employye i la info que llegim la volem d'Employee
         
         ArrayList<Employee> treballadorsRecuperats = new ArrayList<>();
-        treballadorsRecuperats.addAll(Arrays.asList(personal)); //Omplim una arraylist de cop amb .addAll de tota la array anterior.
-       
+        
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("arxiuObjectes.txt"))){ //cargem el arxiu escrit anteriorment
-            //for-each per imprimir en pantalla la nova arraylist
-            for (Employee i : treballadorsRecuperats){
-                System.out.println(ois.readObject());
-                System.out.println("*****************");
-            }
+            for (int i = 0; i < 3; i++) 
+                treballadorsRecuperats.add((Employee)ois.readObject());
+            
             //Tancar el fluxe
             ois.close();
         }catch(IOException | ClassNotFoundException ex){
             System.out.println("Error de lectura. :S " + ex);
         }
+        //for-each per imprimir en pantalla la nova arraylist
+        for (Employee i : treballadorsRecuperats){
+                System.out.println(i);
+                System.out.println("**********************");
+            }
     } 
 }
